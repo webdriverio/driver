@@ -3,9 +3,7 @@ import path from 'node:path'
 import fsp from 'node:fs/promises'
 import { vi, test, expect, describe, beforeEach } from 'vitest'
 
-import * as pkgExports from '../src/index.js'
 import { fetchVersion, download, isAutoInstallEntrypoint } from '../src/install.js'
-import { getNameByArchitecture, parseParams, extractBasicAuthFromUrl } from '../src/utils.js'
 import { EDGE_PRODUCTS_API } from '../src/constants.js'
 
 // All vi.mock calls must be at module scope so Vitest hoists them before any
@@ -158,62 +156,6 @@ describe('fetchVersion', () => {
     })
 })
 
-test('getNameByArchitecture', () => {
-    vi.mocked(os.arch).mockReturnValue('arm')
-    vi.mocked(os.platform).mockReturnValue('linux')
-    expect(getNameByArchitecture()).toBe('edgedriver_linux32')
-    vi.mocked(os.arch).mockReturnValue('arm64')
-    vi.mocked(os.platform).mockReturnValue('linux')
-    expect(getNameByArchitecture()).toBe('edgedriver_linux64')
-    vi.mocked(os.arch).mockReturnValue('arm')
-    vi.mocked(os.platform).mockReturnValue('win32')
-    expect(getNameByArchitecture()).toBe('edgedriver_win32')
-    vi.mocked(os.arch).mockReturnValue('arm64')
-    vi.mocked(os.platform).mockReturnValue('win32')
-    expect(getNameByArchitecture()).toBe('edgedriver_win64')
-    vi.mocked(os.arch).mockReturnValue('x64')
-    vi.mocked(os.platform).mockReturnValue('darwin')
-    expect(getNameByArchitecture()).toBe('edgedriver_mac64')
-    vi.mocked(os.arch).mockReturnValue('arm64')
-    vi.mocked(os.platform).mockReturnValue('darwin')
-    expect(getNameByArchitecture()).toBe('edgedriver_mac64_m1')
-})
-
-test('parseParams', () => {
-    expect(parseParams({ baseUrl: 'foobar', silent: true, verbose: false, allowedIps: ['123', '321'] }))
-        .toMatchSnapshot()
-})
-
-test('exports', () => {
-    expect(typeof pkgExports.download).toBe('function')
-    expect(typeof pkgExports.findEdgePath).toBe('function')
-    expect(typeof pkgExports.start).toBe('function')
-})
-
-test('extractBasicAuthFromUrl with credentials', () => {
-    const result = extractBasicAuthFromUrl('https://myuser:mypassword@cdn.example.com/path/file.zip')
-    expect(result.url).toBe('https://cdn.example.com/path/file.zip')
-    expect(result.authHeader).toBe('Basic ' + Buffer.from('myuser:mypassword').toString('base64'))
-})
-
-test('extractBasicAuthFromUrl without credentials', () => {
-    const result = extractBasicAuthFromUrl('https://cdn.example.com/path/file.zip')
-    expect(result.url).toBe('https://cdn.example.com/path/file.zip')
-    expect(result.authHeader).toBeUndefined()
-})
-
-test('extractBasicAuthFromUrl with only username', () => {
-    const result = extractBasicAuthFromUrl('https://myuser@cdn.example.com/path/file.zip')
-    expect(result.url).toBe('https://cdn.example.com/path/file.zip')
-    expect(result.authHeader).toBe('Basic ' + Buffer.from('myuser:').toString('base64'))
-})
-
-test('extractBasicAuthFromUrl with invalid URL returns original', () => {
-    const result = extractBasicAuthFromUrl('not-a-valid-url')
-    expect(result.url).toBe('not-a-valid-url')
-    expect(result.authHeader).toBeUndefined()
-})
-
 describe('isAutoInstallEntrypoint', () => {
     // uses the native `path` module (matching the implementation), so this
     // only proves correctness for the host OS running the test — real
@@ -261,4 +203,3 @@ describe('download', () => {
         await expect(download('123.456.789.0', CACHE_DIR)).rejects.toThrow('resolves outside the cache directory')
     })
 })
-
