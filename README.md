@@ -106,7 +106,7 @@ const browser = await remote({
   }
 });
 
-await browser.url('[https://webdriver.io](https://webdriver.io)');
+await browser.url('https://webdriver.io');
 console.log(await browser.getTitle());
 
 // 4. Terminate process when finished
@@ -121,7 +121,7 @@ import safaridriver from 'safaridriver';
 import { remote } from 'webdriverio';
 
 // 1. Start Safaridriver server
-await safaridriver.start({ port: 4444 });
+safaridriver.start({ port: 4444 });
 
 // 2. Connect WebdriverIO session
 const browser = await remote({
@@ -130,7 +130,7 @@ const browser = await remote({
   }
 });
 
-await browser.url('[https://webdriver.io](https://webdriver.io)');
+await browser.url('https://webdriver.io');
 console.log(await browser.getTitle());
 
 // 3. Stop Safaridriver process
@@ -172,8 +172,4 @@ Passed into `safaridriver.start(options)`:
 
 ## License
 
-[MIT](https://www.google.com/search?q=LICENSE&utm_source=gemini)
-
-```
-
-```
+[MIT](LICENSE)
