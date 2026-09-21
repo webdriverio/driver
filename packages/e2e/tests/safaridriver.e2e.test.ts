@@ -18,7 +18,7 @@ describe.skipIf(process.platform !== 'darwin')('Safaridriver E2E Tests', () => {
                     browserName: 'safari'
                 }
             })
-            await browser.url('https://webdriver.io')
+            await browser.url('https://guinea-pig.webdriver.io/')
             await browser.deleteSession()
         } finally {
             stop()
