@@ -196,7 +196,7 @@ Port to listen on.
 Type: `number`
 
 ### `websocketPort`
-Port to use for Debugger / WebDriver BiDi.
+Port to use for Debugger / WebDriver BiDi. If omitted and `connectExisting` is not set, it defaults to `0` (a random available port) rather than Geckodriver's native default, so that parallel instances don't collide. Setting `websocketPort` together with `connectExisting: true` throws an error, since the two options can't be used together.
 
 Type: `number`
 
