@@ -184,6 +184,8 @@ Passed into `safaridriver.start(options)`:
 | `enable` | `boolean` | `false` | Configures macOS permissions ("Enable Remote Automation") and exits immediately. |
 | `diagnose` | `boolean` | `false` | Enables diagnostic log output for driver sessions. |
 
+See the [safaridriver README](packages/node-safaridriver/README.md) for more details.
+
 ---
 
 ## License
