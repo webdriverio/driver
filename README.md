@@ -1,6 +1,6 @@
 # WebdriverIO Browser Drivers Monorepo (WIP)
 
-This monorepo contains Node.js wrappers for managing browser driver binaries ([Geckodriver](https://github.com/webdriverio-community/node-geckodriver/blob/main/README.md), [Edgedriver](https://github.com/webdriverio-community/node-edgedriver/blob/main/README.md), and [Safaridriver](https://github.com/webdriverio-community/node-safaridriver)). These packages facilitate downloading, starting, and managing driver server processes for [WebdriverIO](https://webdriver.io) and other test automation frameworks.
+This monorepo contains Node.js wrappers for managing browser driver binaries ([Geckodriver](https://github.com/webdriverio/driver/blob/main/packages/node-geckodriver/README.md), [Edgedriver](https://github.com/webdriverio/driver/blob/main/packages/node-edgedriver/README.md), and [Safaridriver](https://github.com/webdriverio/driver/blob/main/packages/node-safaridriver/README.md)). These packages facilitate downloading, starting, and managing driver server processes for [WebdriverIO](https://webdriver.io) and other test automation frameworks.
 
 ---
 
