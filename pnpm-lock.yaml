@@ -235,8 +235,8 @@ importers:
         specifier: ^2.23.0
         version: 2.23.0
       decamelize:
-        specifier: ^6.0.1
-        version: 6.0.1
+        specifier: ^7.0.0
+        version: 7.0.0
       undici:
         specifier: ^8.11.2
         version: 8.11.2
@@ -251,8 +251,8 @@ importers:
         specifier: ^2.23.0
         version: 2.23.0
       decamelize:
-        specifier: ^6.0.1
-        version: 6.0.1
+        specifier: ^7.0.0
+        version: 7.0.0
       modern-tar:
         specifier: ^0.8.6
         version: 0.8.6
@@ -1615,6 +1615,10 @@ packages:
   decamelize@6.0.1:
     resolution: {integrity: sha512-G7Cqgaelq68XHJNGlZ7lrNQyhZGsFqpwtGFexqUv4IQdjKoSYF7ipZ9UuTJZUSQXFj/XaoBLuEVIVqr8EJngEQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+
+  decamelize@7.0.0:
+    resolution: {integrity: sha512-uT/0KzZIx9u4b5vW3HLWtSYwjLTuY2QFVY3xNmfXXUmTqnfgzfT8DEA2gY93go5sXEjnbqP66KcURdVxm0rDXA==}
+    engines: {node: '>=22'}
 
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
@@ -4145,6 +4149,8 @@ snapshots:
       supports-color: 7.2.0
 
   decamelize@6.0.1: {}
+
+  decamelize@7.0.0: {}
 
   deep-is@0.1.4: {}
 
