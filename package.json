@@ -27,7 +27,7 @@
     "@vitest/coverage-v8": "^5.0.4",
     "husky": "^9.1.7",
     "npm-run-all2": "^9.0.3",
-    "oxlint": "^1.87.0",
+    "oxlint": "^1.88.0",
     "publint": "^0.3.25",
     "release-it": "^21.1.1",
     "rimraf": "^6.1.3",

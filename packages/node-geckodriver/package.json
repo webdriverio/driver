@@ -64,7 +64,7 @@
     "@zip.js/zip.js": "^2.23.0",
     "decamelize": "^7.0.0",
     "modern-tar": "^0.8.6",
-    "undici": "^8.11.2"
+    "undici": "^8.12.2"
   },
   "peerDependencies": {
     "@wdio/logger": "^9.18.0 || ^10.0.0"
