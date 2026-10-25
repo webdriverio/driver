@@ -19,8 +19,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        # full matrix on push, including the engines floor; PRs test Node 24 only, for fast feedback
-        node: ${{ github.event_name == 'pull_request' && fromJson('[24]') || fromJson('["22.19.0", 22, 24, 26]') }}
+        # push runs the engines floor of each line; PRs test the latest Node 24 only, for fast feedback
+        node: ${{ github.event_name == 'pull_request' && fromJson('[24]') || fromJson('["22.23.4", "24.22.1", "26.12.1"]') }}
     runs-on: ${{ matrix.os }}
     steps:
       - name: Set git to use LF
@@ -36,6 +36,8 @@ jobs:
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: ${{ matrix.node }}
+          # the runner cache can hold a 24.x below the engines floor
+          check-latest: true
           cache: 'pnpm'
 
       - name: 🚧 Install Dependencies

@@ -72,10 +72,10 @@ either with `--no-verify`.
 ## CI
 
 [ci.yml](.github/workflows/ci.yml) runs lint, unit and e2e on macOS, Linux and
-Windows. Pull requests run Node 24 only; the required checks are
-`build (<os>, 24)` and EasyCLA. A push to `main` also runs Node 22.19.0 (the
-`engines` floor), 22 and 26, so a floor break shows up only after the merge:
-check that run.
+Windows. Pull requests run the latest Node 24 only; the required checks are
+`build (<os>, 24)` and EasyCLA. A push to `main` runs the `engines` floor of
+each line instead (22.23.4, 24.22.1, 26.12.1), so a floor break shows up only
+after the merge: check that run.
 
 ## Releases
 

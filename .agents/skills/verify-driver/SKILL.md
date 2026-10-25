@@ -37,7 +37,7 @@ Drive every row the change can reach.
 | What WebdriverIO does with the driver (`wdio:*Options`, logging) | The e2e tests that call `remote()`, and `tests/logger.e2e.test.ts` | A `remote()` against a driver you started yourself, when the change is in the path `@wdio/utils` starts |
 | `exports`, `types`, the CJS entry, `files` / `.npmignore`, `LICENSE` | In the package dir: `pnpm run check:pack` (the file list, the source map references, publint and attw), and the CJS interop test in `pnpm --filter <driver> test` | A green build |
 | A type or export that `@wdio/utils` imports | A webdriverio worktree with `overrides` in its `pnpm-workspace.yaml` on the packed tarballs. There: `pnpm run compile && pnpm run compile:all:core && pnpm -r --filter=@wdio/compiler run build -p @wdio/utils`, then `npx tsc -p packages/wdio-utils/tsconfig.json --noEmit` and `npx vitest --config vitest.config.ts --run packages/wdio-utils` | Type-checking this repo only |
-| `engines`, a dependency major, the TS target | `pnpm test` and the e2e file again under Node 22.19.0 (the floor): put `dirname "$(npx -y node@22.19.0 -p process.execPath)"` first on `PATH` | A run on `.nvmrc` (24) only |
+| `engines`, a dependency major, the TS target | `pnpm test` and the e2e file again under the lowest floor, Node 22.23.4: put `dirname "$(npx -y node@22.23.4 -p process.execPath)"` first on `PATH` | A run on `.nvmrc` (24) only |
 
 `attw` reports `FalseExportDefault` for `safaridriver`: `require()` of the
 ESM build returns the namespace, which has `default`. A strict `node16` `.cts`
