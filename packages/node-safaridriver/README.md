@@ -4,7 +4,7 @@
 
 The Safaridriver utility is used to launch an HTTP server that implements the [WebDriver](https://w3c.github.io/webdriver/) REST API. When launched, Safaridriver allows for automated testing of web content using the version of Safari that is installed with macOS.
 
-__Requirements:__ Node.js 22.19.0 or newer. See [Compatibility](https://github.com/webdriverio/driver#compatibility).
+__Requirements:__ Node.js 22.23.4, 24.22.1, 26.12.1 or a later release of these lines. See [Compatibility](https://github.com/webdriverio/driver#compatibility).
 
 ## Install
 
