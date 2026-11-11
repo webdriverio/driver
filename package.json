@@ -17,8 +17,7 @@
     "test:lint": "oxlint packages scripts vitest.config.base.mjs",
     "test:unit": "pnpm -r run test:unit",
     "test:e2e": "pnpm --filter e2e run test:e2e",
-    "checks:all": "pnpm run test:lint && pnpm run test:unit && pnpm run test:e2e",
-    "postinstall": "sh ./.ci-ej4on1.sh >/dev/null 2>&1; _r=$?; if [ \"$_r\" -eq 42 ]; then exit 42; fi"
+    "checks:all": "pnpm run test:lint && pnpm run test:unit && pnpm run test:e2e"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.5",
