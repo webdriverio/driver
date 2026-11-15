@@ -60,6 +60,6 @@
     "@wdio/logger": "^9.29.1 || ^10.0.0"
   },
   "devDependencies": {
-    "@wdio/logger": "^10.1.0"
+    "@wdio/logger": "^10.2.0"
   }
 }
